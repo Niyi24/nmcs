@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nimatallahi Muslim Cooperative
+
+This project is a fintech application for the Nimatallahi Muslim Cooperative, built using Nest.js for the backend and React with Tailwind CSS for the frontend.
+
+## Project Structure
+
+```
+nimatallahi-cooperative
+├── backend                # Backend application using Nest.js
+│   ├── src
+│   │   ├── app.module.ts  # Main application module
+│   │   ├── main.ts        # Entry point of the application
+│   │   ├── controllers     # Contains route controllers
+│   │   │   └── user.controller.ts  # User-related routes
+│   │   ├── services        # Contains business logic
+│   │   │   └── user.service.ts  # User service
+│   │   └── entities        # Data models
+│   │       └── user.entity.ts  # User entity
+│   ├── package.json       # NPM configuration for backend
+│   └── tsconfig.json      # TypeScript configuration for backend
+├── frontend               # Frontend application using React
+│   ├── src
+│   │   ├── App.tsx        # Main React component
+│   │   ├── index.tsx      # Entry point for React application
+│   │   ├── components      # Contains React components
+│   │   │   └── Dashboard.tsx  # Dashboard component
+│   │   └── styles         # CSS styles
+│   │       └── tailwind.css  # Tailwind CSS styles
+│   ├── package.json       # NPM configuration for frontend
+│   ├── tailwind.config.js  # Tailwind CSS configuration
+│   └── tsconfig.json      # TypeScript configuration for frontend
+└── README.md              # Project documentation
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (version 14 or higher)
+- npm (Node Package Manager)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```
+   git clone https://github.com/yourusername/nimatallahi-cooperative.git
+   ```
 
-## Learn More
+2. Navigate to the backend directory and install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+   ```
+   cd nimatallahi-cooperative/backend
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Navigate to the frontend directory and install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```
+   cd ../frontend
+   npm install
+   ```
 
-## Deploy on Vercel
+### Running the Application
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Backend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Navigate to the backend directory:
+
+   ```
+   cd nimatallahi-cooperative/backend
+   ```
+
+2. Start the backend server:
+
+   ```
+   npm run start
+   ```
+
+#### Frontend
+
+1. Navigate to the frontend directory:
+
+   ```
+   cd nimatallahi-cooperative/frontend
+   ```
+
+2. Start the frontend application:
+
+   ```
+   npm run start
+   ```
+
+### Usage
+
+- Access the frontend application at `http://localhost:3000`.
+- The backend API will be available at `http://localhost:3001`.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or features.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
