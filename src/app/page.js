@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
@@ -39,10 +40,14 @@ export default function HomePage() {
           </div>
         </div>
         <div className="flex-1 flex justify-center">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
             alt="Cooperative"
+            width={400}
+            height={400}
             className="rounded-2xl shadow-lg border-4 border-emerald-100 w-full max-w-md"
+            style={{ objectFit: 'cover' }}
+            priority
           />
         </div>
       </section>
