@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import SavingsForm from '../components/SavingsForm';
 
+
 const SavingsPage = () => {
   // Utility function to format Naira amounts
   function formatNaira(amount) {
