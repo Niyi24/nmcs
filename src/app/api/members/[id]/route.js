@@ -1,5 +1,5 @@
-import dbConnect from '../../../utils/dbConnect';
-import Member from '../../../models/Member';
+import dbConnect from '@/utils/dbConnect';
+import Member from '@/models/Member';
 
 export default async function handler(req, res) {
   const {
@@ -54,4 +54,14 @@ export default async function handler(req, res) {
       res.status(405).end(`Method ${method} Not Allowed`);
       break;
   }
+}
+
+export async function GET(req, { params }) {
+  await dbConnect();
+  const { id } = params;
+  const member = await Member.findById(id);
+  if (!member) {
+    return new Response(JSON.stringify({ message: 'Member not found' }), { status: 404 });
+  }
+  return new Response(JSON.stringify(member), { status: 200 });
 }
