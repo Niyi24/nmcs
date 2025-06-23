@@ -6,20 +6,29 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError("");
-    const res = await fetch("/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    if (res.ok) {
-      router.push("/login");
-    } else {
-      setError("Registration failed.");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        router.push("/login");
+      } else {
+        setError(data.error || "Registration failed.");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -31,7 +40,7 @@ export default function RegisterPage() {
         <input
           type="email"
           placeholder="Email"
-          className="w-full mb-4 p-2 border rounded"
+          className="w-full mb-4 p-2 border rounded text-black"
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
@@ -39,13 +48,17 @@ export default function RegisterPage() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full mb-4 p-2 border rounded"
+          className="w-full mb-4 p-2 border rounded text-black"
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <button type="submit" className="w-full bg-emerald-700 text-white py-2 rounded font-semibold">
-          Register
+        <button
+          type="submit"
+          className="w-full bg-emerald-700 text-white py-2 rounded font-semibold"
+          disabled={loading}
+        >
+          {loading ? "Registering..." : "Register"}
         </button>
       </form>
     </div>
