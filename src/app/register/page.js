@@ -36,9 +36,15 @@ export default function RegisterPage() {
     <div className="min-h-screen flex items-center justify-center bg-emerald-50">
       <form onSubmit={handleRegister} className="bg-white p-8 rounded shadow w-full max-w-md">
         <h2 className="text-2xl font-bold text-emerald-700 mb-4">Register</h2>
-        {error && <div className="text-red-600 mb-2">{error}</div>}
+        {error && (
+          <div className="text-red-600 mb-2" aria-live="polite">
+            {error}
+          </div>
+        )}
         <input
           type="email"
+          name="email"
+          autoComplete="email"
           placeholder="Email"
           className="w-full mb-4 p-2 border rounded text-black"
           value={email}
@@ -47,6 +53,8 @@ export default function RegisterPage() {
         />
         <input
           type="password"
+          name="password"
+          autoComplete="new-password"
           placeholder="Password"
           className="w-full mb-4 p-2 border rounded text-black"
           value={password}
