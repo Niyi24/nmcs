@@ -1,9 +1,9 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
-export default function ProfilePage() {
+function ProfileContent() {
   const [member, setMember] = useState(null);
   const [error, setError] = useState('');
   const searchParams = useSearchParams();
@@ -56,5 +56,13 @@ export default function ProfilePage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={<div className="text-emerald-700 p-8">Loading...</div>}>
+      <ProfileContent />
+    </Suspense>
   );
 }
